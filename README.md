@@ -38,7 +38,7 @@ import (
 
 func main() {
 	// 建立一個 NSQ 客戶端，並指定發布者與叢集的位置。
-	c, _ := nsq.NewClient(nsq.Config{
+	c, _ := nsq.NewClient(&nsq.Config{
 		Producer: nsq.Producer{
 			TCP:  "127.0.0.1:4150",
 			HTTP: "127.0.0.1:4151",
@@ -61,7 +61,7 @@ import (
 
 func main() {
 	// 建立一個基於 Event Store 的客戶端連線。
-	c, _ := eventstore.NewClient(eventstore.Config{
+	c, _ := eventstore.NewClient(&eventstore.Config{
 		URL:      "http://127.0.0.1:2113",
 		Username: "admin",
 		Password: "changeit",
